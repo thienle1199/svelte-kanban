@@ -1,8 +1,8 @@
 import { supabase } from "$lib/supabaseClient";
+
   export async function load({params}) {
-    console.log('params', params)
-    
-    const { data } = await supabase
+
+    const getBoardData = async (boardId: string) => supabase
     .from("boards")
     .select(
       `
@@ -20,10 +20,12 @@ import { supabase } from "$lib/supabaseClient";
       )
       `
     )
-    .eq("id", Number(params.id))
+    .eq("id", Number(boardId))
     .single()
 
+    
+
     return {
-      board: data,
+      getBoardData: getBoardData(params.id),
     };
   }

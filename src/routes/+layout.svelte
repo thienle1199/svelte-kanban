@@ -8,7 +8,7 @@
 </script>
 
 <Sidebar.Provider>
-	<AppSidebar boards={data.boards} />
+	<AppSidebar activeBoard={data.activeBoard} boards={data.boards} />
 	<main>
 	  <Sidebar.Trigger />
 	  {@render children?.()}
